@@ -33,9 +33,9 @@ class apicall:
         return val
 
     def details(self):
-        """Using some of the extracted data from the
+        """Using some of the extracted data from the api
         call to plot the graph.They can be interchanged with
-        any other data to determine or rather plot the graph """
+        any other data to determine details or rather plot the graph of the details """
 
         for repos_dict in self.get_total_item():
             self.name.append(repos_dict['name'])
@@ -58,13 +58,15 @@ class apicall:
         chart = pygal.Bar(style=my_style, x_label_rotation=45, show_legend=False)
         chart.title = 'Most stared c++ project on github'
         chart.x_labels = self.name
-
         chart.add('', self.stars)
         chart.render_to_file('repository_chart.svg')
 
 
 if __name__ == '__main__':
+    # This takes input from the user.
     val = str(input('Check top account for stat: '))
     Apicall = apicall(f'https://api.github.com/search/repositories?q=language:{val}&sort=stars')
     Apicall.chart_display()
+
+    # List all account generated from the call.
     Apicall.list_all_first_30_account_with_highest_stared()
