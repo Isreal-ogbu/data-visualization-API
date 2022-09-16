@@ -6,8 +6,8 @@ from pygal.style import LightColorizedStyle as LCS, LightStyle as LC
 class apicall:
     def __init__(self, url):
         self.url = url
-        self.stars = list()
-        self.name = list()
+        self.stars = list() # The API choice
+        self.name = list() # The API choice.
 
     def assign_url(self):
         """This function takes the Api call i.e the Url"""
@@ -15,7 +15,7 @@ class apicall:
         return url
 
     def json_file(self):
-        """This convert the  """
+        """This convert the file into json format """
         j_file = self.assign_url()
         repo_dict = j_file.json()
         return repo_dict
@@ -28,7 +28,7 @@ class apicall:
         return self.json_file()['items']
 
     def amount_of_repository(self):
-        """Amount of repository extracted from the call"""
+        """Total Amount of repository extracted from the call"""
         val = len(self.get_total_item())
         return val
 
