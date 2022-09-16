@@ -10,6 +10,8 @@ print('status code: ', r.status_code)
 
 # Store the response in a .json file
 response_dict = r.json()
+
+# This write the extracted file in to the check.json file with the 'w' command specified.
 with open('check.json', 'w') as p:
     json.dump(response_dict, p)
 
