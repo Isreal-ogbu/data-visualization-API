@@ -42,6 +42,7 @@ class apicall:
             self.stars.append(repos_dict['stargazers_count'])
 
     def list_all_first_30_account_with_highest_stared(self):
+        "List out all the top acounts on github"
         for k, repo_dict in enumerate(self.json_file()['items']):
             print(f'\nPrint details of {k + 1} highest stared repository:')
             print('name : ', repo_dict['name'])
